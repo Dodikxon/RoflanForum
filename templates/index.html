@@ -27,18 +27,18 @@
                     <nav class="header-in-nav-navbar">
                         {% if user.is_authenticated %}
                             <ul class="header-in-nav-navbar-items">
-                                <a href="{% url 'home' %}" class="header-in-nav-navbar-items-link">
+                                <a href="{% url 'profile' %}" class="header-in-nav-navbar-items-link">
                                     Profile
                                 </a>
                             </ul>
                             <ul class="header-in-nav-navbar-items">
-                                <a href="{% url 'home' %}" class="header-in-nav-navbar-items-link">
+                                <a onclick="popup_logout();" class="header-in-nav-navbar-items-link logout">
                                     Logout
                                 </a>
                             </ul>
                         {% else %}
                             <ul class="header-in-nav-navbar-items">
-                                <a href="{% url 'home' %}" class="header-in-nav-navbar-items-link">
+                                <a href="{% url 'login' %}" class="header-in-nav-navbar-items-link">
                                     Login
                                 </a>
                             </ul>
@@ -58,7 +58,21 @@
     
     {% endblock %}
 
+    <div class="popup-logout">
+        <div class="popup-logout-in">
+            <div class="popup-logout-in-title">
+                <h1 class="popup-logout-in-title-text">Do you really want to leave?</h1>
+            </div>
+            <div class="popup-logout-in-login">
+                <a href="{% url 'logout' %}" class="popup-logout-in-login-btn"
+                    onclick="popup_exit();">Logout</a>
+                <a href="{% url 'home' %}" class="popup-logout-in-login-btn"
+                    onclick="popup_exit();">Home page</a>
+            </div>
+        </div>
+    </div>
 
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="{% static 'users/js/script.js' %}"></script>
 </body>
 </html>

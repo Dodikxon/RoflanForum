@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+{% block title %}
+    Register - RoflanZdarova
+{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <div class="container">
+            <div class="common-subtitle">
+                <h1 class="common-subtitle-text">Registration
+                </h1>
+            </div>
+            <form action="{% url 'register' %}" class="form-login" method="post">
+                {% csrf_token %}
+                {{ form }}
+                <input type="submit" value="Create account"
+                       class="form-login-submit">
+            </form>
+        </div>
+    </div>
+{% endblock %}

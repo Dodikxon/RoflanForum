@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+{% block title %}
+    {{ user.get_username }} - RoflanZdarova
+{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <div class="container">
+            <div class="common-subtitle">
+                <h1 class="common-subtitle-text">Profile {{ user.get_username }}
+                </h1>
+            </div>
+        </div>
+    </div>
+{% endblock %}
