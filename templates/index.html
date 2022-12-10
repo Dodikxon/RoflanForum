@@ -1,0 +1,64 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'users/css/style.min.css' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'users/favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'users/favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'users/favicon/favicon-16x16.png' %}">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-in">
+                <div class="header-in-logo">
+                    <a href="{% url 'home' %}"><img src="{% static 'users/img/959b5e34c96431c7.webp' %}"
+                         alt="Logo site"></a>
+                </div>
+                <div class="space"></div>
+                <div class="header-in-nav">
+                    <nav class="header-in-nav-navbar">
+                        {% if user.is_authenticated %}
+                            <ul class="header-in-nav-navbar-items">
+                                <a href="{% url 'home' %}" class="header-in-nav-navbar-items-link">
+                                    Profile
+                                </a>
+                            </ul>
+                            <ul class="header-in-nav-navbar-items">
+                                <a href="{% url 'home' %}" class="header-in-nav-navbar-items-link">
+                                    Logout
+                                </a>
+                            </ul>
+                        {% else %}
+                            <ul class="header-in-nav-navbar-items">
+                                <a href="{% url 'home' %}" class="header-in-nav-navbar-items-link">
+                                    Login
+                                </a>
+                            </ul>
+                            <ul class="header-in-nav-navbar-items">
+                                <a href="{% url 'home' %}" class="header-in-nav-navbar-items-link">
+                                    Registration
+                                </a>
+                            </ul>
+                        {% endif %}
+
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    {% block content %}
+    
+    {% endblock %}
+
+
+    <script src="{% static 'users/js/script.js' %}"></script>
+</body>
+</html>
