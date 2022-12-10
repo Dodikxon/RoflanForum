@@ -1,0 +1,189 @@
+/* DEFAULT */
+*, *:before, *:after{
+  box-sizing: border-box;
+}
+h1,h2,h3,h4,h5,h6{
+  margin: 0;
+}
+p{
+  margin: 0 0 10px;
+}
+.container{
+  max-width: 2000px;
+  width: 100%;
+  margin: 0 auto;
+}
+body{
+  border: 0;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  -ms-overflow-x: hidden;
+  background: #494949;
+  font-family: 'Rajdhani', sans-serif;
+}
+ul{
+  margin: 0;
+  padding: 0;
+}
+a{
+  text-decoration: none;
+}
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+.space{
+  width: 10px;
+}
+/* /DEFAULT */
+
+/* COMMON BLOCKS */
+.common{
+
+  &-title{
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    background: #000;
+    border-radius: 0 0 20px 20px;
+    height: 47px;
+    text-align: center;
+    &-text{
+      height: 47px;
+      font-size: 40px;
+      font-weight: 600;
+      color: #fff;
+      text-transform: uppercase;
+    }
+  }
+
+  &-subtitle{
+    max-width: 800px;
+    margin: 30px auto 0 auto;
+    background: #000;
+    border-radius: 20px 20px 0 0;
+    height: 47px;
+    text-align: center;
+    &-text{
+      height: 47px;
+      font-size: 40px;
+      font-weight: 600;
+      color: #fff;
+      text-transform: uppercase;
+    }
+  }
+}
+
+/* /COMMON BLOCKS */
+
+/* HEADER */
+header{
+  max-width: 100vw;
+  width: 100vw;
+  background: black;
+  height: 90px;
+  text-align: center;
+  .header-in{
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &-logo{
+      width: 90px;
+      height: 90px;
+      & a{
+        display: inline-block;
+        height: 90px;
+        color: #fff;
+        & img{
+          width: 90px;
+          height: auto;
+          transition: 0.13s border linear;
+          &:hover{
+            border: 3px #fff solid;
+            border-radius: 100%;
+          }
+        }
+      }
+    }
+    &-nav{
+
+      &-navbar{
+
+        &-items{
+          width: 100px;
+          height: 30px;
+          &-link{
+            font-weight: 500;
+            font-size: 20px;
+            text-decoration: none;
+            color: #fff;
+            transition: 0.1s border linear;
+            &:hover{
+              border: 2.5px #fff solid;
+              border-radius: 5px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* /HEADER */
+
+/* CONTENT */
+.content{
+
+  &-in{
+
+    &-homenav{
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 800px;
+      margin: 0 auto;
+      &-items{
+        width: 30%;
+        justify-content: space-between;
+        margin: 5px 11px 5px 11px;
+        background: #000;
+        height: 30px;
+        text-align: center;
+        transition: 0.1s border linear;
+        color: #fff;
+        &:hover{
+          border: 1px white solid;
+        }
+        &-link{
+          font-size: 21px;
+          background: #000;
+        }
+      }
+    }
+  }
+}
+
+/* /CONTENT */
+
+/* FORMS */
+.form{
+
+  &-login{
+    text-align: center;
+    align-items: center;
+    &-submit{
+      max-width: 800px;
+      width: 100%;
+      height: 47px;
+      background: black;
+      color: #fff;
+      border: 1px #000 solid;
+      border-radius: 0 0 20px 20px;
+      font-size: 25px;
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 400;
+      &:hover{
+        border: 1px white solid;
+      }
+    }
+  }
+}
+
+/* /FORMS */
