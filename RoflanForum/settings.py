@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = 'users.User'
 
 # Application definition
 
@@ -37,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'users.apps.UsersConfig',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -77,8 +78,12 @@ WSGI_APPLICATION = 'RoflanForum.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'RoflanDataBase',
+        'USER': 'postgres',
+        'PASSWORD': 'syefwpguppt',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
