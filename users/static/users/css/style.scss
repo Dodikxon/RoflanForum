@@ -33,6 +33,22 @@ a{
 .space{
   width: 10px;
 }
+::placeholder {
+   text-align: center;
+}
+::-webkit-input-placeholder {
+   text-align: center;
+}
+:-moz-placeholder {
+   text-align: center;
+}
+::-moz-placeholder {
+   text-align: center;
+}
+:-ms-input-placeholder {
+   text-align: center;
+}
+
 /* /DEFAULT */
 
 /* COMMON BLOCKS */
@@ -132,6 +148,32 @@ header{
 /* CONTENT */
 .content{
 
+  &-profile{
+    &-header{
+      display: flex;
+      color: white;
+      height: 47px;
+      align-items: center;
+      justify-content: center;
+    }
+    &-container{
+      border: 1px #fff solid;
+      max-width: 800px;
+      width: 100%;
+      margin: 0 auto;
+    }
+    &-column{
+      height: 47px;
+      background: black;
+      text-align: center;
+      &-text{
+        color: #fff;
+        font-weight: 400;
+        font-size: 30px;
+      }
+    }
+  }
+
   &-in{
 
     &-homenav{
@@ -162,7 +204,7 @@ header{
 
 /* /CONTENT */
 
-/* FORMS */
+/* FORM */
 .form{
 
   &-login{
@@ -204,7 +246,7 @@ header{
   }
 }
 
-/* /FORMS */
+/* /FORM */
 
 /* POPUP */
 .popup{
@@ -258,6 +300,21 @@ header{
 }
 /* /POPUP */
 
-/* ICONS */
+/* HELP */
+.help{
 
-/* /ICONS */
+  &-staff{
+    display: none;
+    width: 110px;
+    max-width: 110px;
+    top: 90px;
+    left: 56%;
+    &-text{
+      margin: 0;
+      width: 110px;
+      font-size: 13px;
+    }
+  }
+}
+/* HELP */
+

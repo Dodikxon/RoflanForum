@@ -11,3 +11,11 @@ function popup_logout(){
 function popup_exit(){
     $(".popup-logout").css("display", "none");
 }
+
+function moderator_icon(){
+    help_staff = $(".help-staff");
+    help_staff.css("display", "block");
+    help_staff.click( function() {
+        $(".help-staff").css("display", "none");
+    });
+}

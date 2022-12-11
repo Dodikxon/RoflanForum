@@ -41,6 +41,26 @@ a {
   width: 10px;
 }
 
+::placeholder {
+  text-align: center;
+}
+
+::-webkit-input-placeholder {
+  text-align: center;
+}
+
+:-moz-placeholder {
+  text-align: center;
+}
+
+::-moz-placeholder {
+  text-align: center;
+}
+
+:-ms-input-placeholder {
+  text-align: center;
+}
+
 /* /DEFAULT */
 /* COMMON BLOCKS */
 .common-title {
@@ -125,6 +145,29 @@ header .header-in-nav-navbar-items-link:hover {
 
 /* /HEADER */
 /* CONTENT */
+.content-profile-header {
+  display: flex;
+  color: white;
+  height: 47px;
+  align-items: center;
+  justify-content: center;
+}
+.content-profile-container {
+  border: 1px #fff solid;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+}
+.content-profile-column {
+  height: 47px;
+  background: black;
+  text-align: center;
+}
+.content-profile-column-text {
+  color: #fff;
+  font-weight: 400;
+  font-size: 30px;
+}
 .content-in-homenav {
   display: flex;
   flex-wrap: wrap;
@@ -150,7 +193,7 @@ header .header-in-nav-navbar-items-link:hover {
 }
 
 /* /CONTENT */
-/* FORMS */
+/* FORM */
 .form-login {
   text-align: center;
   align-items: center;
@@ -189,7 +232,7 @@ header .header-in-nav-navbar-items-link:hover {
   border: 1px white solid;
 }
 
-/* /FORMS */
+/* /FORM */
 /* POPUP */
 .popup {
   display: none;
@@ -240,7 +283,20 @@ header .header-in-nav-navbar-items-link:hover {
 }
 
 /* /POPUP */
-/* ICONS */
-/* /ICONS */
+/* HELP */
+.help-staff {
+  display: none;
+  width: 110px;
+  max-width: 110px;
+  top: 90px;
+  left: 56%;
+}
+.help-staff-text {
+  margin: 0;
+  width: 110px;
+  font-size: 13px;
+}
+
+/* HELP */
 
 /*# sourceMappingURL=style.css.map */

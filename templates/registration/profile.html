@@ -7,13 +7,36 @@
     <div class="content">
         <div class="container">
             <div class="common-subtitle">
-                <h1 class="common-subtitle-text">Profile {{ user.get_username }}
-                    {% if user.get_is_staff == TRUE %}
-
+                <div class="content-profile-header">
+                    <h1 class="common-subtitle-text">Profile {{ user.get_username }}
+                    </h1>
+                    {% if user.is_staff == True %}
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-check2-all bi-moderator" viewBox="0 0 16 16" onclick="moderator_icon();">
+                            <path d="M12.354 4.354a.5.5 0 0 0-.708-.708L5 10.293 1.854 7.146a.5.5 0 1 0-.708.708l3.5 3.5a.5.5 0 0 0 .708 0l7-7zm-4.208 7-.896-.897.707-.707.543.543 6.646-6.647a.5.5 0 0 1 .708.708l-7 7a.5.5 0 0 1-.708 0z"/>
+                            <path d="m5.354 7.146.896.897-.707.707-.897-.896a.5.5 0 1 1 .708-.708z"/>
+                        </svg>
+                        <div class="help-staff">
+                            <p class="help-staff-text">It`s moderator icon</p>
+                        </div>
                     {% else %}
-
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person bi-moderator" viewBox="0 0 16 16" onclick="moderator_icon();">
+                            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+                        </svg>
+                        <div class="help-staff">
+                            <p class="help-staff-text">It`s user icon a default</p>
+                        </div>
                     {% endif %}
-                </h1>
+                </div>
+            </div>
+            <div class="content-profile">
+                <div class="content-profile-container">
+                    <div class="content-profile-column">
+                        <h1 class="content-profile-column-text">Date create account: {{ user.date_joined }}</h1>
+                    </div>
+                    <div class="content-profile-column">
+                        <h1 class="content-profile-column-text">Last login: {{ user.last_login }}</h1>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
