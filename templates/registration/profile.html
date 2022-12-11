@@ -8,6 +8,11 @@
         <div class="container">
             <div class="common-subtitle">
                 <h1 class="common-subtitle-text">Profile {{ user.get_username }}
+                    {% if user.get_is_staff == TRUE %}
+
+                    {% else %}
+
+                    {% endif %}
                 </h1>
             </div>
         </div>

@@ -6,6 +6,9 @@
 {% block content %}
     <div class="content">
         <div class="container">
+            {% if form.errors.error == TRUE %}
+                {{ form.errors.error }}
+            {% endif %}
             <div class="common-subtitle">
                 <h1 class="common-subtitle-text">Registration
                 </h1>

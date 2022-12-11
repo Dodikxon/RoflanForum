@@ -43,7 +43,7 @@
                                 </a>
                             </ul>
                             <ul class="header-in-nav-navbar-items">
-                                <a href="{% url 'home' %}" class="header-in-nav-navbar-items-link">
+                                <a href="{% url 'register' %}" class="header-in-nav-navbar-items-link">
                                     Registration
                                 </a>
                             </ul>
@@ -58,19 +58,23 @@
     
     {% endblock %}
 
-    <div class="popup-logout">
-        <div class="popup-logout-in">
-            <div class="popup-logout-in-title">
-                <h1 class="popup-logout-in-title-text">Do you really want to leave?</h1>
-            </div>
-            <div class="popup-logout-in-login">
-                <a href="{% url 'logout' %}" class="popup-logout-in-login-btn"
-                    onclick="popup_exit();">Logout</a>
-                <a href="{% url 'home' %}" class="popup-logout-in-login-btn"
-                    onclick="popup_exit();">Home page</a>
+    <!-- POPUP LOGOUT -->
+    <div class="popup" id="popup-logout">
+        <div class="popup-logout">
+            <div class="popup-logout-in">
+                <div class="popup-logout-in-title">
+                    <h1 class="popup-logout-in-title-text">Do you really want to leave?</h1>
+                </div>
+                <div class="popup-logout-in-login">
+                    <a href="{% url 'logout' %}" class="popup-logout-in-login-btn"
+                        onclick="popup_exit();">Yes</a>
+                    <a href="{% url 'home' %}" class="popup-logout-in-login-btn"
+                        onclick="popup_exit();">No</a>
+                </div>
             </div>
         </div>
     </div>
+    <!-- /POPUP LOGOUT -->
 
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="{% static 'users/js/script.js' %}"></script>

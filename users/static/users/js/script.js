@@ -1,7 +1,8 @@
 
 function popup_logout(){
     $.ajax(
-        $(".popup-logout").css("display", "block"),
+        $(".popup").css("display", "flex"),
+        $(".popup-logout").css("display", "flex"),
         $(".container").css("filter", "blur(5px)"),
     );
 
