@@ -210,6 +210,9 @@ header{
   &-login{
     text-align: center;
     align-items: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
     &-input{
       max-width: 800px;
       width: 100%;

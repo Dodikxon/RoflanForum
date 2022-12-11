@@ -197,6 +197,9 @@ header .header-in-nav-navbar-items-link:hover {
 .form-login {
   text-align: center;
   align-items: center;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
 }
 .form-login-input {
   max-width: 800px;
