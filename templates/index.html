@@ -27,7 +27,7 @@
                     <nav class="header-in-nav-navbar">
                         {% if user.is_authenticated %}
                             <ul class="header-in-nav-navbar-items">
-                                <a href="{% url 'profile' %}" class="header-in-nav-navbar-items-link">
+                                <a href="{{ user.get_absolute_url }}" class="header-in-nav-navbar-items-link">
                                     Profile
                                 </a>
                             </ul>

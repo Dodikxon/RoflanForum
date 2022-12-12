@@ -1,11 +1,16 @@
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
 from django.views import View
+from django.views.generic import DetailView
+
 from .forms import *
+from .models import *
 
 
-def profile(request):
-    return render(request, 'registration/profile.html')
+class ProfileDetail(DetailView):
+    model = User
+    template_name = "registration/profile.html"
+    context_object_name = "profile"
 
 
 class Register(View):
