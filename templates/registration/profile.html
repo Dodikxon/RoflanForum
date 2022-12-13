@@ -37,7 +37,7 @@
                         <h1 class="content-profile-column-text">Last login: {{ profile.last_login }}</h1>
                     </div>
                     <div class="content-profile-column">
-                        {% if profile.is_staff == True %}
+                        {% if profile.is_staff == True and user.id == profile.id %}
                             <a href="{% url 'theme' %}" class="content-profile-btn-theme">
                                 Create theme
                             </a>
