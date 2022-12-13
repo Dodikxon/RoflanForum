@@ -2,14 +2,16 @@ from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
 from django.views import View
 from django.views.generic import DetailView, ListView
+from django.views.generic.base import TemplateResponseMixin, ContextMixin
 
 from .forms import *
 from .models import *
 
 
-class ThemeView(ListView):
+class TemplateView(ListView):
     model = CreateThemeModel
     context_object_name = 'theme'
+    template_name = 'home.html'
 
 
 class CreateTheme(View):
