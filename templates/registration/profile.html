@@ -36,6 +36,15 @@
                     <div class="content-profile-column">
                         <h1 class="content-profile-column-text">Last login: {{ profile.last_login }}</h1>
                     </div>
+                    <div class="content-profile-column">
+                        {% if profile.is_staff == True %}
+                            <a href="{% url 'theme' %}" class="content-profile-btn-theme">
+                                Create theme
+                            </a>
+                        {% else %}
+
+                        {% endif %}
+                    </div>
                 </div>
             </div>
         </div>

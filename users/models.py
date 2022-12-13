@@ -14,3 +14,9 @@ class User(AbstractUser):
         return reverse("profile_id", kwargs={"pk": self.id})
 
 
+class CreateThemeModel(models.Model):
+    name = models.CharField(max_length=50)
+    description = models.CharField(max_length=300, blank=True)
+
+    def __str__(self):
+        return self.name

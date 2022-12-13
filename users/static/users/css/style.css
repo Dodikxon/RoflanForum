@@ -145,6 +145,14 @@ header .header-in-nav-navbar-items-link:hover {
 
 /* /HEADER */
 /* CONTENT */
+.content-profile-btn-theme {
+  color: #fff;
+  font-weight: 400;
+  font-size: 30px;
+}
+.content-profile-btn-theme:hover {
+  text-decoration: underline;
+}
 .content-profile-header {
   display: flex;
   color: white;

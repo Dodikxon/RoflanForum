@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+{% block title %}
+    Create Theme - RoflanZdarova
+{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <div class="container">
+            <div class="common-subtitle">
+                <h1 class="common-subtitle-text">Create Theme
+                </h1>
+            </div>
+            <form action="{% url 'theme' %}" class="form-login" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form }}
+                <input type="submit" value="Enter in account"
+                       class="form-login-submit">
+            </form>
+
+        </div>
+    </div>
+{% endblock %}

@@ -149,6 +149,15 @@ header{
 .content{
 
   &-profile{
+
+    &-btn-theme{
+        color: #fff;
+        font-weight: 400;
+        font-size: 30px;
+        &:hover{
+          text-decoration: underline;
+        }
+    }
     &-header{
       display: flex;
       color: white;
