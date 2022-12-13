@@ -63,7 +63,14 @@ class CreateThemeForm(ModelForm):
             attrs={"class": "form-login-input",
                    'placeholder': 'Enter description a theme'},)
     )
+    slug = forms.CharField(
+        label='',
+        required=True,
+        widget=forms.TextInput(
+            attrs={"class": "form-login-input",
+                   'placeholder': 'Enter link on a theme',}, )
+    )
 
     class Meta:
         model = CreateThemeModel
-        fields = ['name', 'description']
+        fields = ['name', 'description', 'slug']

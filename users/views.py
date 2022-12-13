@@ -8,6 +8,12 @@ from .forms import *
 from .models import *
 
 
+class ThemeDetail(DetailView):
+    model = CreateThemeModel
+    context_object_name = 'theme'
+    template_name = 'forum/theme-detail.html'
+
+
 class TemplateView(ListView):
     model = CreateThemeModel
     context_object_name = 'theme'
@@ -30,7 +36,7 @@ class CreateTheme(View):
             form.save()
             name = form.cleaned_data.get('name')
             description = form.cleaned_data.get('description')
-            image = form.cleaned_data.get('image')
+            slug = form.cleaned_data.get('slug')
             return redirect('home')
         context = {
             'form': form
