@@ -150,14 +150,6 @@ header{
 
   &-profile{
 
-    &-btn-theme{
-        color: #fff;
-        font-weight: 400;
-        font-size: 30px;
-        &:hover{
-          text-decoration: underline;
-        }
-    }
     &-header{
       display: flex;
       color: white;
@@ -184,6 +176,28 @@ header{
   }
 
   &-in{
+
+    &-theme{
+      max-width: 800px;
+      background: #000;
+      height: 47px;
+      margin: 0 auto;
+      text-align: center;
+      border: 1px #000 solid;
+      transition: border 0.1s linear;
+
+      &:hover{
+        border: 1px #fff solid;
+      }
+
+
+      &-btn{
+        color: #fff;
+        height: 47px;
+        width: 100%;
+        font-size: 35px;
+      }
+    }
 
     &-homenav{
       display: flex;

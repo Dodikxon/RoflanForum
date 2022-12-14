@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users',
+    'forum'
 ]
 
 MIDDLEWARE = [
@@ -82,7 +83,7 @@ WSGI_APPLICATION = 'RoflanForum.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'RoflanDataBase',
+        'NAME': 'RoflanForum',
         'USER': 'postgres',
         'PASSWORD': 'syefwpguppt',
         'HOST': '127.0.0.1',

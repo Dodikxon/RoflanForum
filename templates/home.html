@@ -14,14 +14,21 @@
             <div class="common-subtitle">
                 <h1 class="common-subtitle-text">Themes
                 </h1>
+
             </div>
             <div class="content-in">
+                    {% if user.is_staff == True %}
+                        <div class="content-in-theme">
+                            <a href="{% url 'theme' %}" class="content-in-theme-btn">
+                                Create theme
+                            </a>
+                        </div>
+                    {% else %}{% endif %}
                 <nav class="content-in-homenav">
                     {% for i in theme %}
                         <a href="theme/{{ i.slug }}" class="content-in-homenav-items">
                             <ul class="content-in-homenav-items-link">
                                 {{ i.name }}
-                                <img src="{{ i.image }}" alt="">
                             </ul>
                         </a>
                     {% endfor %}

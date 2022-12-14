@@ -145,14 +145,6 @@ header .header-in-nav-navbar-items-link:hover {
 
 /* /HEADER */
 /* CONTENT */
-.content-profile-btn-theme {
-  color: #fff;
-  font-weight: 400;
-  font-size: 30px;
-}
-.content-profile-btn-theme:hover {
-  text-decoration: underline;
-}
 .content-profile-header {
   display: flex;
   color: white;
@@ -175,6 +167,24 @@ header .header-in-nav-navbar-items-link:hover {
   color: #fff;
   font-weight: 400;
   font-size: 30px;
+}
+.content-in-theme {
+  max-width: 800px;
+  background: #000;
+  height: 47px;
+  margin: 0 auto;
+  text-align: center;
+  border: 1px #000 solid;
+  transition: border 0.1s linear;
+}
+.content-in-theme:hover {
+  border: 1px #fff solid;
+}
+.content-in-theme-btn {
+  color: #fff;
+  height: 47px;
+  width: 100%;
+  font-size: 35px;
 }
 .content-in-homenav {
   display: flex;

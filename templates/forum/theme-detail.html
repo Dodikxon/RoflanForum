@@ -7,13 +7,27 @@
     <div class="content">
         <div class="container">
             <div class="common-subtitle">
-                <h1 class="common-subtitle-text">Theme {{ theme.name }}
+                <h1 class="common-subtitle-text">{{ theme.name }}
                 </h1>
             </div>
             <div class="content-profile">
                 <div class="content-profile-container">
                     <div class="content-profile-column">
-                        <h1 class="content-profile-column-text">Description: {{ theme.description }}</h1>
+                        <h1 class="content-profile-column-text">{{ theme.description }}</h1>
+                    </div>
+                    <div class="content-in-theme">
+                        <a href="{% url 'article' %}" class="content-in-theme-btn">
+                            Create article
+                        </a>
+                        <nav class="content-in-homenav">
+                            {% for i in article %}
+                                <a href="theme/{{ i.slug }}" class="content-in-homenav-items">
+                                    <ul class="content-in-homenav-items-link">
+                                        {{ i.name }}
+                                    </ul>
+                                </a>
+                            {% endfor %}
+                        </nav>
                     </div>
                 </div>
             </div>

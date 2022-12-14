@@ -4,44 +4,15 @@ from django.views import View
 from django.views.generic import DetailView, ListView
 from django.views.generic.base import TemplateResponseMixin, ContextMixin
 
+from forum.models import CreateThemeModel
 from .forms import *
 from .models import *
-
-
-class ThemeDetail(DetailView):
-    model = CreateThemeModel
-    context_object_name = 'theme'
-    template_name = 'forum/theme-detail.html'
 
 
 class TemplateView(ListView):
     model = CreateThemeModel
     context_object_name = 'theme'
     template_name = 'home.html'
-
-
-class CreateTheme(View):
-    template_name = "forum/theme.html"
-
-    def get(self, request):
-        context = {
-            'form': CreateThemeForm()
-        }
-        return render(request, self.template_name, context)
-
-    def post(self, request):
-        form = CreateThemeForm(request.POST, request.FILES)
-
-        if form.is_valid():
-            form.save()
-            name = form.cleaned_data.get('name')
-            description = form.cleaned_data.get('description')
-            slug = form.cleaned_data.get('slug')
-            return redirect('home')
-        context = {
-            'form': form
-        }
-        return render(request, self.template_name, context)
 
 
 class ProfileDetail(DetailView):
