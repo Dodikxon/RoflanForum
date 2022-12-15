@@ -25,7 +25,9 @@
                             {% for article in theme.article.all  %}
                                 <a href="theme/{{ article.slug }}" class="content-in-homenav-items">
                                     <ul class="content-in-homenav-items-link">
-                                        {{ article.name }}
+                                        <span>Name: </span>{{ article.name }}
+                                        <br>
+                                        <span>Description: </span>{{ article.description }}
                                     </ul>
                                 </a>
                             {% endfor %}
