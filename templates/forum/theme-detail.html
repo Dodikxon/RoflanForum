@@ -16,14 +16,16 @@
                         <h1 class="content-profile-column-text">{{ theme.description }}</h1>
                     </div>
                     <div class="content-in-theme">
+                    {% if user.is_authenticated %}
                         <a href="{% url 'article' %}" class="content-in-theme-btn">
                             Create article
                         </a>
+                    {% endif %}
                         <nav class="content-in-homenav">
-                            {% for i in article %}
-                                <a href="theme/{{ i.slug }}" class="content-in-homenav-items">
+                            {% for article in theme.article.all  %}
+                                <a href="theme/{{ article.slug }}" class="content-in-homenav-items">
                                     <ul class="content-in-homenav-items-link">
-                                        {{ i.name }}
+                                        {{ article.name }}
                                     </ul>
                                 </a>
                             {% endfor %}

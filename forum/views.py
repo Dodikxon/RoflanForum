@@ -1,16 +1,16 @@
 from django.shortcuts import render, redirect
 from django.views import View
-from django.views.generic import DetailView
+from django.views.generic import DetailView, ListView
 
 from forum.forms import *
 from forum.models import *
 
 
-class ThemeDetail(DetailView):
+class ThemeDetail(DetailView, ListView):
     model = CreateThemeModel
     context_object_name = 'theme'
     template_name = 'forum/theme-detail.html'
-
+    object_list = Article.objects.all()
 
 
 class ArticleView(View):
