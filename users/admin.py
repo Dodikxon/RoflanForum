@@ -12,4 +12,6 @@ class UserAdmin(UserAdmin):
     list_display = ("username", "email")
 
 
-
+@admin.register(UserDetail)
+class DetailInfoUsers(admin.ModelAdmin):
+    list_display = ("first_name", "last_name", "gender")

@@ -1,24 +1,26 @@
 {% extends 'index.html' %}
 {% block title %}
-    Login - RoflanZdarova
+    RoflanZdarova - Login
 {% endblock %}
 
 {% block content %}
-    <div class="content">
+    <div class="home">
         <div class="container">
-            <div class="common-subtitle">
-                <h1 class="common-subtitle-text">Login
-                </h1>
+            <div class="home-in">
+                <div class="home-in-mid">
+                    <div class="home-in-mid-title">
+                        <h1 class="home-in-mid-title-text">Login</h1>
+                    </div>
+                    <div class="common">
+                        <form action="{% url 'login' %}" class="common-form" method="post">
+                            {% csrf_token %}
+                            {{ form }}
+                            <input type="submit" value="Enter in account"
+                                   class="common-form-submit">
+                        </form>
+                    </div>
+                </div>
             </div>
-            {% if form.errors %}
-                <p>Your username and password didn't match. Please try again.</p>
-            {% endif %}
-            <form action="{% url 'login' %}" class="form-login" method="post">
-                {% csrf_token %}
-                {{ form }}
-                <input type="submit" value="Enter in account"
-                       class="form-login-submit">
-            </form>
         </div>
     </div>
 {% endblock %}

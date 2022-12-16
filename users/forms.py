@@ -16,28 +16,28 @@ class UserCreationForm(UserCreationForm):
         label="",
         strip=False,
         widget=forms.TextInput(attrs={"autocomplete": "new-username",
-                                      "class": "form-login-input",
+                                      "class": "common-form-input",
                                       'placeholder': 'Create you`re username', }),
     )
     email = forms.CharField(
         label="",
         strip=False,
         widget=forms.TextInput(attrs={"autocomplete": "new-mail",
-                                      "class": "form-login-input",
+                                      "class": "common-form-input",
                                       'placeholder': 'Enter you`re mail', }),
     )
     password1 = forms.CharField(
         label="",
         strip=False,
         widget=forms.PasswordInput(attrs={"autocomplete": "new-password",
-                                          "class": "form-login-input",
+                                          "class": "common-form-input",
                                           'placeholder': 'Create you`re password', }),
         help_text=None,
     )
     password2 = forms.CharField(
         label="",
         widget=forms.PasswordInput(attrs={"autocomplete": "new-password",
-                                          "class": "form-login-input",
+                                          "class": "common-form-input",
                                           'placeholder': 'Wrong password again', }),
         strip=False,
         help_text=None,
@@ -48,4 +48,24 @@ class UserCreationForm(UserCreationForm):
         fields = ("username", "email")
 
 
+class UserDetailForm(forms.ModelForm):
+    first_name = forms.CharField(
+        label="",
+        widget=forms.TextInput(attrs={"class": "common-form-input",
+                                      'placeholder': 'Enter first name'}
+                               ),
+    )
+    last_name = forms.CharField(
+        label="",
+        widget=forms.TextInput(attrs={"class": "common-form-input",
+                                      'placeholder': 'Enter last name'}
+                               ),
+    )
+    gender = forms.CharField(
+        label="",
+        widget=forms.ChoiceField()
+    )
 
+    class Meta:
+        model = UserDetail
+        fields = ("first_name", "last_name", "gender")

@@ -1,24 +1,26 @@
 {% extends 'index.html' %}
 {% block title %}
-    Register - RoflanZdarova
+    RoflanZdarova - Registration
 {% endblock %}
 
 {% block content %}
-    <div class="content">
+    <div class="home">
         <div class="container">
-            {% if form.errors.error == TRUE %}
-                {{ form.errors.error }}
-            {% endif %}
-            <div class="common-subtitle">
-                <h1 class="common-subtitle-text">Registration
-                </h1>
+            <div class="home-in">
+                <div class="home-in-mid">
+                    <div class="home-in-mid-title">
+                        <h1 class="home-in-mid-title-text">Registration</h1>
+                    </div>
+                    <div class="common">
+                        <form action="{% url 'register' %}" class="common-form" method="post">
+                            {% csrf_token %}
+                            {{ form }}
+                            <input type="submit" value="Enter in account"
+                                   class="common-form-submit">
+                        </form>
+                    </div>
+                </div>
             </div>
-            <form action="{% url 'register' %}" class="form-login" method="post">
-                {% csrf_token %}
-                {{ form }}
-                <input type="submit" value="Create account"
-                       class="form-login-submit">
-            </form>
         </div>
     </div>
 {% endblock %}

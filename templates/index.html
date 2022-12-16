@@ -18,37 +18,58 @@
     <header>
         <div class="container">
             <div class="header-in">
-                <div class="header-in-logo">
-                    <a href="{% url 'home' %}"><img src="{% static 'users/img/959b5e34c96431c7.webp' %}"
-                         alt="Logo site"></a>
+                <div class="header-in-left">
+                    <a href="{% url 'home' %}" class="header-in-left-logo-btn">
+                        <div class="header-in-left-logo">
+                            <div class="header-in-left-logo-container">
+                                <div class="header-in-left-logo-container-title">
+                                    <h1 class="header-in-left-logo-container-title-text">Roflan</h1>
+                                </div>
+                                <div class="header-in-left-logo-container-subtitle">
+                                    <h5 class="header-in-left-logo-container-subtitle-text">forum</h5>
+                                </div>
+                            </div>
+                            <div class="header-in-left-logo-image">
+                                <img src="{% static 'users/img/959b5e34c96431c7.webp' %}" alt="Roflan" class="header-in-left-logo-image-icon">
+                            </div>
+                        </div>
+                    </a>
                 </div>
-                <div class="space"></div>
-                <div class="header-in-nav">
-                    <nav class="header-in-nav-navbar">
+                <div class="header-in-right">
+                    <nav class="header-in-right-navbar">
                         {% if user.is_authenticated %}
-                            <ul class="header-in-nav-navbar-items">
-                                <a href="{{ user.get_absolute_url }}" class="header-in-nav-navbar-items-link">
-                                    Profile
-                                </a>
-                            </ul>
-                            <ul class="header-in-nav-navbar-items">
-                                <a onclick="popup_logout();" class="header-in-nav-navbar-items-link logout">
-                                    Logout
-                                </a>
-                            </ul>
+                            <ul class="header-in-right-navbar-item">
+                            <a href="{{ user.get_absolute_url }}" class="header-in-right-navbar-item-link">
+                                Profile
+                            </a>
+                        </ul>
+                        <ul class="header-in-right-navbar-item">
+                            <a href="{% url 'logout' %}" class="header-in-right-navbar-item-link">
+                                Logout
+                            </a>
+                        </ul>
+                        <ul class="header-in-right-navbar-item">
+                            <a href="#" class="header-in-right-navbar-item-link">
+                                Rules
+                            </a>
+                        </ul>
                         {% else %}
-                            <ul class="header-in-nav-navbar-items">
-                                <a href="{% url 'login' %}" class="header-in-nav-navbar-items-link">
-                                    Login
-                                </a>
-                            </ul>
-                            <ul class="header-in-nav-navbar-items">
-                                <a href="{% url 'register' %}" class="header-in-nav-navbar-items-link">
-                                    Registration
-                                </a>
-                            </ul>
+                        <ul class="header-in-right-navbar-item">
+                            <a href="{% url 'login' %}" class="header-in-right-navbar-item-link">
+                                Login
+                            </a>
+                        </ul>
+                        <ul class="header-in-right-navbar-item">
+                            <a href="{% url 'register' %}" class="header-in-right-navbar-item-link">
+                                Registration
+                            </a>
+                        </ul>
+                        <ul class="header-in-right-navbar-item">
+                            <a href="#" class="header-in-right-navbar-item-link">
+                                Rules
+                            </a>
+                        </ul>
                         {% endif %}
-
                     </nav>
                 </div>
             </div>
@@ -57,24 +78,6 @@
     {% block content %}
     
     {% endblock %}
-
-    <!-- POPUP LOGOUT -->
-    <div class="popup" id="popup-logout">
-        <div class="popup-logout">
-            <div class="popup-logout-in">
-                <div class="popup-logout-in-title">
-                    <h1 class="popup-logout-in-title-text">Do you really want to leave?</h1>
-                </div>
-                <div class="popup-logout-in-login">
-                    <a href="{% url 'logout' %}" class="popup-logout-in-login-btn"
-                        onclick="popup_exit();">Yes</a>
-                    <a href="{% url 'home' %}" class="popup-logout-in-login-btn"
-                        onclick="popup_exit();">No</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- /POPUP LOGOUT -->
 
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="{% static 'users/js/script.js' %}"></script>

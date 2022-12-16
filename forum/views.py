@@ -13,6 +13,7 @@ class ThemeDetail(DetailView, ListView):
     object_list = Article.objects.all()
 
 
+
 class ArticleView(View):
     model = Article
     context_object_name = 'article'
