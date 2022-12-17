@@ -1,0 +1,26 @@
+{% extends 'index.html' %}
+{% block title %}
+    RoflanZdarova - Add detail
+{% endblock %}
+
+{% block content %}
+    <div class="home">
+        <div class="container">
+            <div class="home-in">
+                <div class="home-in-mid">
+                    <div class="home-in-mid-title">
+                        <h1 class="home-in-mid-title-text">Add detail</h1>
+                    </div>
+                    <div class="common">
+                        <form action="{% url 'change_profile' user.id %}" class="common-form" method="post">
+                            {% csrf_token %}
+                            {{ form }}
+                            <input type="submit" value="Create detail info"
+                                   class="common-form-submit">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

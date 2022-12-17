@@ -20,34 +20,20 @@
                     </div>
                     <div class="home-in-mid-profile">
                         <div class="home-in-mid-profile-picture">
-                            <a href="" class="home-in-mid-profile-picture-edit"><span>&#9998;</span> Edit image</a>
-                            {% for user_detail in profile.userdetail_set.all %}
-                                {% if user_detail.picture %}
-                                    <img src="{{ user_detail.picture.url }}"
+                            <a href="{% url 'change_avatar' user.id %}" class="home-in-mid-profile-picture-edit"><span>&#9998;</span> Edit image</a>
+                                {% if profile.avatar %}
+                                    <img src="{{ profile.avatar.url }}"
                                         alt="{{ profile.username }} image" class="home-in-mid-profile-picture-image">
                                 {% else %}
                                     <img src="{% static 'users/img/ej3kzapo5tjma2lqhlwr.jpg' %}"
                                         alt="{{ profile.username }} image" class="home-in-mid-profile-picture-image">
                                 {% endif %}
-                            {% endfor %}
                         </div>
                         <div class="home-in-mid-profile-item">
-                            <a href="" class="home-in-mid-profile-item-edit"><span>&#9998;</span> Edit profile</a>
-                            {% for user_detail in profile.userdetail_set.all %}
-                                {% if user_detail %}
-                                <div class="home-in-mid-profile-item-block">
-                                    <h1 class="home-in-mid-profile-item-block-text">First name: {{ user_detail.first_name }}</h1>
-                                </div>
-                                <div class="home-in-mid-profile-item-block">
-                                    <h1 class="home-in-mid-profile-item-block-text">Last name: {{ user_detail.last_name }}</h1>
-                                </div>
-                                <div class="home-in-mid-profile-item-block">
-                                    <h1 class="home-in-mid-profile-item-block-text">Gender: {{ user_detail.gender }}</h1>
-                                </div>
-                                {% endif %}
-                            {% endfor %}
-
-
+                            <a href="{% url 'change_profile' user.id %}" class="home-in-mid-profile-item-edit"><span>&#9998;</span> Edit profile</a>
+                            <div class="home-in-mid-profile-item-block">
+                                <h1 class="home-in-mid-profile-item-block-text">{{ profile.get_full_name }}</h1>
+                            </div>
                         </div>
                     </div>
                 </div>

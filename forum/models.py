@@ -21,7 +21,7 @@ class CreateThemeModel(models.Model):
     article = models.ManyToManyField(Article)
 
     def get_absolute_url(self):
-        return reverse("theme-detail", kwargs={"slug": self.slug})
+        return reverse("theme-detail", kwargs={"slug": self.name})
 
     def __str__(self):
         return self.name

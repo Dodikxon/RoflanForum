@@ -2,12 +2,10 @@ from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
 from django.views import View
 from django.views.generic import DetailView, ListView, TemplateView
-from django.views.generic.base import TemplateResponseMixin, ContextMixin
 
 from forum.models import CreateThemeModel, Article
 from .forms import *
 from .models import *
-from datetime import datetime
 
 
 class TemplateView(TemplateView):
@@ -20,19 +18,70 @@ class TemplateView(TemplateView):
         return context
 
 
-class ProfileDetail(DetailView, ListView):
+class ProfileDetail(DetailView):
     model = User
     template_name = "registration/profile.html"
     context_object_name = "profile"
-    object_list = UserDetail.objects.all()
+
+
+class ChangeAvatar(View):
+    template_name = 'registration/change_avatar.html'
+
+    def get(self, request, user_id):
+        user = User.objects.get(id=user_id)
+        context = {
+            'form': UserAddAvatar(),
+        }
+        return render(request, self.template_name, context)
+
+    def post(self, request, user_id):
+        form = UserAddAvatar(request.POST)
+        if form.is_valid():
+            user = User.objects.get(id=user_id)
+            avatar = request.FILES['avatar']
+            user.avatar = avatar
+            user.save()
+            form = UserAddAvatar(request.POST)
+            return redirect('home')
+        context = {
+            'form': form
+        }
+        return render(request, self.template_name, context)
+
+
+class ChangeProfile(View):
+    template_name = 'registration/add_profile_detail.html'
+
+    def get(self, request, user_id):
+        user = User.objects.get(id=user_id)
+        context = {
+            'form': UserChangeDetailInfo(),
+        }
+        return render(request, self.template_name, context)
+
+    def post(self, request, user_id):
+        form = UserChangeDetailInfo(request.POST)
+        if form.is_valid():
+            user = User.objects.get(id=user_id)
+            first = request.POST['first_name']
+            last = request.POST['last_name']
+            user.first_name = first
+            user.last_name = last
+            user.save()
+            form = UserChangeDetailInfo(request.POST, instance=user)
+            return redirect('home')
+        context = {
+            'form': form
+        }
+        return render(request, self.template_name, context)
 
 
 class Register(View):
     template_name = 'registration/registration.html'
-    object_list = UserDetail.objects.all()
+
     def get(self, request):
         context = {
-            'form': UserCreationForm()
+            'form': UserCreationForm(),
         }
         return render(request, self.template_name, context)
 

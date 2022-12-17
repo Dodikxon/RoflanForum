@@ -1,5 +1,3 @@
-import profile
-
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.urls import reverse
@@ -11,19 +9,14 @@ class User(AbstractUser):
     REQUIRED_FIELDS = ["email"]
     email = models.EmailField(_("email address"), unique=True)
     slug = models.SlugField(null=True)
+    first_name = models.CharField(_("first name"), max_length=150, blank=True)
+    last_name = models.CharField(_("last name"), max_length=150, blank=True)
+    avatar = models.ImageField(upload_to='upload/users/%Y/%m/%d', blank=True, null=True)
+
+    def get_full_name(self):
+        full_name = "%s %s" % (self.first_name, self.last_name)
+        return full_name.strip()
 
     def get_absolute_url(self):
         return reverse("profile_id", kwargs={"pk": self.id})
 
-
-class UserDetail(models.Model):
-    GENDER_CHOICES = [
-        ('Men', 'M'),
-        ('Women', 'W'),
-    ]
-    first_name = models.CharField(blank=True, max_length=50, default='no first name')
-    last_name = models.CharField(blank=True, max_length=50, default='no last name')
-    gender = models.CharField(choices=GENDER_CHOICES, default='Men',
-                              blank=True, max_length=5)
-    user = models.ManyToManyField(User, default=User)
-    picture = models.ImageField(upload_to='upload/%Y/%M/%d/', blank=True)

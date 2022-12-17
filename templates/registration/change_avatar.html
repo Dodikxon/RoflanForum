@@ -1,0 +1,26 @@
+{% extends 'index.html' %}
+{% block title %}
+    RoflanZdarova - Change Avatar
+{% endblock %}
+
+{% block content %}
+    <div class="home">
+        <div class="container">
+            <div class="home-in">
+                <div class="home-in-mid">
+                    <div class="home-in-mid-title">
+                        <h1 class="home-in-mid-title-text">Change Avatar</h1>
+                    </div>
+                    <div class="common">
+                        <form enctype="multipart/form-data" action="{% url 'change_avatar' user.id %}" class="common-form" method="post">
+                            {% csrf_token %}
+                            {{ form }}
+                            <input type="submit" value="Create detail info"
+                                   class="common-form-submit">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
