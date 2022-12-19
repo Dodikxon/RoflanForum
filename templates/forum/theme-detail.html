@@ -4,34 +4,30 @@
 {% endblock %}
 
 {% block content %}
-    <div class="content">
+    <div class="home">
         <div class="container">
-            <div class="common-subtitle">
-                <h1 class="common-subtitle-text">{{ theme.name }}
-                </h1>
-            </div>
-            <div class="content-profile">
-                <div class="content-profile-container">
-                    <div class="content-profile-column">
-                        <h1 class="content-profile-column-text">{{ theme.description }}</h1>
+            <div class="home-in">
+                <div class="home-in-mid">
+                    <div class="home-in-mid-title">
+                        <h1 class="home-in-mid-title-text">Theme: {{ theme.name }}</h1>
                     </div>
-                    <div class="content-in-theme">
-                    {% if user.is_authenticated %}
-                        <a href="{% url 'article' %}" class="content-in-theme-btn">
-                            Create article
-                        </a>
-                    {% endif %}
-                        <nav class="content-in-homenav">
-                            {% for article in theme.article.all  %}
-                                <a href="theme/{{ article.slug }}" class="content-in-homenav-items">
-                                    <ul class="content-in-homenav-items-link">
-                                        <span>Name: </span>{{ article.name }}
-                                        <br>
-                                        <span>Description: </span>{{ article.description }}
-                                    </ul>
-                                </a>
-                            {% endfor %}
-                        </nav>
+                    <div class="home-in-mid-title">
+                        <h1 class="home-in-mid-title-text">Description: {{ theme.description }}</h1>
+                    </div>
+                    <div class="home-in-mid-title">
+                        <a href="" class="home-in-mid-title-text">Create article</a>
+                    </div>
+                    <nav class="content-in-homenav">
+                        {% for article in object_list %}
+                            <a href="" class="content-in-homenav-items">
+                                <ul class="content-in-homenav-items-link">
+                                    <span>Name: </span>{{ article.name }}
+                                    <br>
+                                    <span>Description: </span>{{ article.description }}
+                                </ul>
+                            </a>
+                        {% endfor %}
+                    </nav>
                     </div>
                 </div>
             </div>

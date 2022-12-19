@@ -8,36 +8,52 @@ from forum.models import *
 
 class ThemeDetail(DetailView, ListView):
     model = CreateThemeModel
-    context_object_name = 'theme'
     template_name = 'forum/theme-detail.html'
+    context_object_name = 'theme'
     object_list = Article.objects.all()
 
+    def get_absolute_url(self, request, slug):
+        slug = CreateThemeModel.objects.get(slug=slug)
+        return render(request, self.template_name)
 
-class ArticleView(View):
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['article'] = Article.objects.all()
+        return context
+
+
+class ArticleView(DetailView):
     model = Article
     context_object_name = 'article'
-    template_name = 'forum/theme-detail.html'
+    template_name = 'forum/article-detail.html'
+
+    def get_absolute_url(self, request, slug, article_name):
+        slug = CreateThemeModel.objects.get(slug=slug)
+        article_name = Article.objects.get(slug=article_name)
+        return render(request, self.template_name)
 
 
 class CreateArticle(View):
     template_name = "forum/article.html"
 
-    def get(self, request):
+    def get(self, request, slug):
+        slug = CreateThemeModel.objects.get(slug=slug)
         context = {
-            'form': ArticleForm()
+            'form': ArticleForm(),
         }
         return render(request, self.template_name, context)
 
-    def post(self, request):
+    def post(self, request, slug):
         form = ArticleForm(request.POST, request.FILES)
 
         if form.is_valid():
+            slug = CreateThemeModel.objects.get(slug=slug)
             form.save()
             name = form.cleaned_data.get('name')
             description = form.cleaned_data.get('description')
             return redirect('home')
         context = {
-            'form': form
+            'form': ArticleForm(),
         }
         return render(request, self.template_name, context)
 
@@ -55,10 +71,9 @@ class CreateTheme(View):
         form = CreateThemeForm(request.POST, request.FILES)
 
         if form.is_valid():
-            form.save()
             name = form.cleaned_data.get('name')
             description = form.cleaned_data.get('description')
-            slug = form.cleaned_data.get('slug')
+            form.save()
             return redirect('home')
         context = {
             'form': form

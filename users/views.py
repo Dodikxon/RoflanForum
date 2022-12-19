@@ -8,14 +8,16 @@ from .forms import *
 from .models import *
 
 
-class TemplateView(TemplateView):
+class HomePage(ListView):
+    model = CreateThemeModel
     template_name = 'home.html'
+    context_object_name = 'home'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['theme'] = CreateThemeModel.objects.all()
-        context['latest_articles'] = Article.objects.all()[:3]
+        context['article'] = Article.objects.all()[:3]
         return context
+
 
 
 class ProfileDetail(DetailView):

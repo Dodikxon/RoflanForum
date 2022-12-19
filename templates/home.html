@@ -9,23 +9,30 @@
             <div class="home-in">
                 <div class="home-in-top">
                     <div class="home-in-top-articles">
-                    {% for theme in theme %}
-                        {% for article in latest_articles %}
-                        <div class="home-in-top-articles-item">
-                                <a href="theme/{{ theme.name }}/{{ article.name }}" class="home-in-top-articles-item-link">
+                        {% for article in article %}
+                            <div class="home-in-top-articles-item">
+                                <a href="" class="home-in-top-articles-item-link">
                                     {{ article.name }}
                                 </a>
-                        </div>
+                            </div>
                         {% endfor %}
                     </div>
                 </div>
                 <div class="home-in-mid">
                     <div class="home-in-mid-title">
-                        <h1 class="home-in-mid-title-text">ALL THEMES</h1>
+                        <h1 class="home-in-mid-title-text">Title</h1>
+                    </div>
+                    <div class="home-in-mid-create">
+                        {% if user.is_staff %}
+                            <div class="home-in-mid-create-item">
+                                <a href="{% url 'theme' %}" class="home-in-mid-create-item-theme">Create Theme</a>
+                            </div>
+                        {% endif %}
                     </div>
                     <div class="home-in-mid-themes">
+                        {% for theme in home %}
                             <div class="home-in-mid-themes-item">
-                                <a href="theme/{{ theme.slug }}" class="home-in-mid-themes-item-btn">
+                                <a href="{% url 'theme-detail' theme.slug %}" class="home-in-mid-themes-item-btn">
                                     {{ theme.name }}
                                 </a>
                             </div>

@@ -4,19 +4,23 @@
 {% endblock %}
 
 {% block content %}
-    <div class="content">
+    <div class="home">
         <div class="container">
-            <div class="common-subtitle">
-                <h1 class="common-subtitle-text">Create Theme
-                </h1>
+            <div class="home-in">
+                <div class="home-in-mid">
+                    <div class="home-in-mid-title">
+                        <h1 class="home-in-mid-title-text">Create theme</h1>
+                    </div>
+                    <div class="common">
+                        <form action="{% url 'theme' %}" class="common-form" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ form }}
+                            <input type="submit" value="Add theme on the forum"
+                                   class="common-form-submit">
+                        </form>
+                    </div>
+                </div>
             </div>
-            <form action="{% url 'theme' %}" class="form-login" method="post" enctype="multipart/form-data">
-                {% csrf_token %}
-                {{ form }}
-                <input type="submit" value="Add theme on the forum"
-                       class="form-login-submit">
-            </form>
-
         </div>
     </div>
 {% endblock %}

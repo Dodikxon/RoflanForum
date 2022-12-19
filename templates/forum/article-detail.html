@@ -4,26 +4,28 @@
 {% endblock %}
 
 {% block content %}
-    <div class="content">
+    <div class="home">
         <div class="container">
-            <div class="common-subtitle">
-                <h1 class="common-subtitle-text">{{ article.count }}
-                </h1>
-            </div>
-            <div class="content-profile">
-                <div class="content-profile-container">
-                    <div class="content-profile-column">
-                        <h1 class="content-profile-column-text">{{ article.description }}</h1>
+            <div class="home-in">
+                <div class="home-in-mid">
+                    <div class="home-in-mid-title">
+                        <h1 class="home-in-mid-title-text">Theme: {{ article.name }}</h1>
                     </div>
-                    <div class="content-in-theme">
-                        <a href="{% url 'article' %}" class="content-in-theme-btn">
-                            Create article
-                        </a>
+                    <div class="home-in-mid-title">
+                        <h1 class="home-in-mid-title-text">Description: {{ article.description }}</h1>
+                    </div>
+                    {% if user.is_authenticated %}
+                        <div class="home-in-mid-title">
+                                <a href="{% url 'article' %}" class="home-in-mid-title-text">Create article</a>
+                        </div>
+                    {% endif %}
                         <nav class="content-in-homenav">
-                            {% for i in article %}
-                                <a href="theme/{{ i.slug }}" class="content-in-homenav-items">
+                            {% for article in theme.article.all  %}
+                                <a href="theme/{{ article.slug }}" class="content-in-homenav-items">
                                     <ul class="content-in-homenav-items-link">
-                                        {{ i.name }}
+                                        <span>Name: </span>{{ article.name }}
+                                        <br>
+                                        <span>Description: </span>{{ article.description }}
                                     </ul>
                                 </a>
                             {% endfor %}

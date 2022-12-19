@@ -1,55 +1,46 @@
-from django.contrib.auth.forms import UserCreationForm
 from django import forms
-from django.contrib.auth import get_user_model
-from django.forms import ModelForm
-from django.utils.translation import gettext_lazy as _
 from .models import *
 
 
-class CreateThemeForm(ModelForm):
+class CreateThemeForm(forms.ModelForm):
     name = forms.CharField(
         label='',
         required=True,
         widget=forms.TextInput(
-            attrs={"class": "form-login-input",
-                   'placeholder': 'Enter name a theme'}, )
+            attrs={"class": "common-form-input",
+                   'placeholder': 'ENTER NAME THEME'}, )
     )
     description = forms.CharField(
         label='',
         required=False,
         widget=forms.TextInput(
-            attrs={"class": "form-login-input",
-                   'placeholder': 'Enter description a theme'}, )
-    )
-    slug = forms.CharField(
-        label='',
-        required=True,
-        widget=forms.TextInput(
-            attrs={"class": "form-login-input",
-                   'placeholder': 'Enter link on a theme', }, )
+            attrs={"class": "common-form-input",
+                   'placeholder': 'ENTER DESCRIPTION THEME'}, )
     )
 
     class Meta:
         model = CreateThemeModel
-        fields = ['name', 'description', 'slug']
+        fields = ['name', 'description']
+        prepopulated_fields = {"slug": ("name",)}
 
 
-class ArticleForm(ModelForm):
+class ArticleForm(forms.ModelForm):
     name = forms.CharField(
         label='',
         required=True,
         widget=forms.TextInput(
-            attrs={"class": "form-login-input",
-                   'placeholder': 'Enter name a article'}, )
+            attrs={"class": "common-form-input",
+                   'placeholder': 'ENTER NAME ARTICLE'}, )
     )
     description = forms.CharField(
         label='',
         required=False,
         widget=forms.Textarea(
-            attrs={"class": "form-login-input",
-                   'placeholder': 'Enter description a article'}, )
+            attrs={"class": "common-form-input",
+                   'placeholder': 'ENTER DESCRIPTION ARTICLE'}, )
     )
 
     class Meta:
         model = Article
         fields = ['name', 'description']
+        prepopulated_fields = {"slug": ("name",)}

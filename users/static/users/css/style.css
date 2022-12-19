@@ -68,55 +68,69 @@ a {
 /* DEFAULT END */
 /* COMMON START */
 .common {
-  max-width: 800px;
-  margin: 20px auto 0 auto;
-  text-align: center;
-}
-.common input:last-child {
-  margin: 15px 0 0 0;
+  margin: 0 auto;
 }
 .common-form {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .common-form-input {
+  padding: 0;
   width: 100%;
-  margin: 0 0 15px 0;
-  font-family: "Rajdhani", sans-serif;
-  font-weight: 300;
-  font-size: 25px;
-  height: 50px;
+  max-width: 80%;
+  min-width: 300px;
+  height: 55px;
+  background: #000;
   color: #fff;
-  background: #000000;
-  border: 1px solid #f8bc03;
-  transition: background, border 0.5s ease;
+  font-size: 40px;
+  border: 3px #d2961e solid;
+  text-align: center;
+  font-weight: 300;
+  font-family: "Rajdhani", sans-serif;
+  margin: 20px auto 0 auto;
+  transition: background, border ease 1s;
+}
+.common-form-input:hover {
+  background: #1e1e1e;
+  border: #f8bc03 solid 3px;
 }
 .common-form-input:active {
   background: #1e1e1e;
-  border: #d2961e;
+  border: #f8bc03 solid 3px;
 }
 .common-form-submit {
-  width: 100%;
-  font-family: "Rajdhani", sans-serif;
-  text-transform: uppercase;
-  font-weight: 300;
-  font-size: 25px;
-  height: 50px;
-  color: #fff;
-  background: #000000;
-  border: 1px solid #f8bc03;
-  transition: background, font-weight 0.5s ease;
+  padding: 0;
   cursor: pointer;
+  width: 100%;
+  max-width: 80%;
+  min-width: 300px;
+  margin-top: 30px;
+  height: 55px;
+  background: #000;
+  color: #fff;
+  font-size: 40px;
+  border: 3px #d2961e solid;
+  text-align: center;
+  font-weight: 300;
+  text-transform: uppercase;
+  font-family: "Rajdhani", sans-serif;
+  transition: background, font-weight 0.5s ease;
 }
 .common-form-submit:hover {
   font-weight: 700;
   background: #1e1e1e;
+  border: #f8bc03 solid 3px;
+}
+.common-form-submit:active {
+  background: #1e1e1e;
+  border: #f8bc03 solid 3px;
 }
 
 /* COMMON END */
 /* HEADER START */
 header {
-  height: 70px;
+  height: auto;
   position: relative;
   top: 0;
   background: #000;
@@ -124,8 +138,7 @@ header {
   border-bottom: #d2961e solid 10px;
 }
 header .header-in {
-  height: 50px;
-  margin: 10px 0 10px 0;
+  height: 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -212,19 +225,95 @@ header .header-in-right-navbar-item-link:hover {
 .home-in-mid {
   margin: 20px 0 15px 0;
 }
+.home-in-mid-profile {
+  display: flex;
+  flex-wrap: wrap;
+}
+.home-in-mid-profile-picture {
+  width: 15%;
+  display: flex;
+  flex-direction: column;
+}
+.home-in-mid-profile-picture-edit {
+  border: 3px #d2961e solid;
+  border-top: none;
+  background: #000;
+  color: #f8bc03;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 300;
+  transition: background, font-weight 0.5s ease;
+}
+.home-in-mid-profile-picture-edit:hover {
+  color: #d2961e;
+  background: #1e1e1e;
+  font-weight: 700;
+}
+.home-in-mid-profile-picture-image {
+  border: 3px #d2961e solid;
+  border-top: none;
+  width: 100%;
+}
+.home-in-mid-profile-item {
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+}
+.home-in-mid-profile-item-edit {
+  border: 3px #d2961e solid;
+  border-top: none;
+  border-left: none;
+  background: #000;
+  color: #f8bc03;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 300;
+  transition: background, font-weight 0.5s ease;
+}
+.home-in-mid-profile-item-edit:hover {
+  color: #d2961e;
+  background: #1e1e1e;
+  font-weight: 700;
+}
+.home-in-mid-profile-item-block {
+  border: 3px #d2961e solid;
+  border-top: none;
+  border-left: none;
+  background: #000;
+}
+.home-in-mid-profile-item-block-text {
+  text-align: center;
+  font-weight: 500;
+  color: #fff;
+}
+.home-in-mid-create {
+  display: flex;
+  flex-wrap: wrap;
+}
+.home-in-mid-create-item {
+  border: 3px #d2961e solid;
+  margin: 10px auto 0 auto;
+  background: #000;
+  text-align: center;
+  width: 50%;
+}
+.home-in-mid-create-item-theme {
+  display: inline-block;
+  height: 50px;
+  width: 100%;
+  font-size: 40px;
+  color: #fff;
+  font-weight: 300;
+  text-transform: uppercase;
+  transition: border, font-weight 0.5s ease;
+}
+.home-in-mid-create-item-theme:hover {
+  font-weight: 700;
+  background: #1e1e1e;
+}
 .home-in-mid-title {
   border: 3px #d2961e solid;
   background: #000;
-  align-items: center;
-}
-.home-in-mid-title span {
-  cursor: pointer;
-}
-.home-in-mid-title span:hover {
-  color: #d2961e;
-}
-.home-in-mid-title span:active {
-  color: #f8bc03;
 }
 .home-in-mid-title-text {
   color: #fff;
@@ -262,89 +351,12 @@ header .header-in-right-navbar-item-link:hover {
   font-size: 18px;
   font-weight: 300;
   transition: background, font-weight 0.5s ease;
+  width: 100%;
+  display: inherit;
 }
 .home-in-mid-themes-item-btn:hover {
   font-weight: 700;
   background: #1e1e1e;
 }
-.home-in-mid-profile {
-  display: flex;
-  flex-direction: row;
-}
-.home-in-mid-profile-picture {
-  display: flex;
-  flex-direction: column;
-  max-width: 25%;
-  width: 25%;
-  height: 250px;
-  border: 3px #d2961e solid;
-  border-top: none;
-  background: #000;
-}
-.home-in-mid-profile-picture-edit {
-  border-bottom: 3px #d2961e solid;
-  text-align: center;
-  font-size: 20px;
-  color: #d2961e;
-  background: #000000;
-  font-weight: 300;
-  transition: background, font-weight 0.5s ease;
-}
-.home-in-mid-profile-picture-edit span {
-  font-weight: 100;
-}
-.home-in-mid-profile-picture-edit:hover {
-  background: #1e1e1e;
-  font-weight: 700;
-}
-.home-in-mid-profile-picture-image {
-  max-width: 100%;
-  width: 100%;
-  height: 100%;
-  margin: 0 auto 10px auto;
-}
-.home-in-mid-profile-item {
-  width: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-.home-in-mid-profile-item-edit {
-  display: inline-block;
-  border: 3px #d2961e solid;
-  border-top: none;
-  border-left: none;
-  text-align: center;
-  font-size: 20px;
-  color: #d2961e;
-  background: #000000;
-  font-weight: 300;
-  transition: background, font-weight 0.5s ease;
-  width: 100%;
-}
-.home-in-mid-profile-item-edit span {
-  font-weight: 100;
-}
-.home-in-mid-profile-item-edit:hover {
-  background: #1e1e1e;
-  font-weight: 700;
-}
-.home-in-mid-profile-item-block {
-  max-width: 1000px;
-  width: 100%;
-}
-.home-in-mid-profile-item-block-text {
-  display: inline-block;
-  max-width: 1000px;
-  width: 100%;
-  text-align: center;
-  font-size: 35px;
-  color: #fff;
-  background: #000000;
-  border: #d2961e 3px solid;
-  border-top: none;
-  border-left: none;
-}
-
-/* HOME END */
 
 /*# sourceMappingURL=style.css.map */
